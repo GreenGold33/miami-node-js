@@ -11,7 +11,7 @@ This Workshop will be an introduction to nodejs as a network system for web appl
 
 ## Disclaimer
 
-This workshop will not teach you how to write javascript code, we assume you already know how to do that for the browser. This is a hands-on workshop but with a lot of information to digest, make sure you arrive fresh and full of energy :)
+This workshop will not teach you how to write javascript code, we assume you already know how to do that for the browser (if not, please check http://mzl.la/1nNiLCB). This is a hands-on workshop but with a lot of information to digest, make sure you arrive fresh and full of energy :)
 
 If you plan to arrive after 6:00 PM, make sure to complete the installation and provisioning sections before you arrive.
 
