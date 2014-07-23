@@ -2,25 +2,28 @@
 
 ## Basic HTTP server
 
-program: `math-operation.js`
+program: `simple-server.js`
 
 ```javascript
 var http = require('http');
-
-http.createServer(function (req, res) {
+var server = http.createServer(function (req, res) {
+    console.log('> route: ' + req.url);
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Hello World\n');
 
-}).listen(3000, '127.0.0.1');
+});
+server.listen(3000, '127.0.0.1');
 
 console.log('Server running at http://127.0.0.1:3000/');
 ```
 
 ```bash
-node exercise-3-server/server.js
+node exercise-3-server/simple-server.js
 ```
 
 ## Modules
+
+### Core modules
 
 nodejs ships with few core modules, which are accessible by `require()`. E.g.:
 
@@ -33,51 +36,70 @@ The core modules are defined in node's source: https://github.com/joyent/node/tr
 
 Most of them are documented here:  http://nodejs.org/api/
 
-#### Custom modules
+### 3rd party modules
 
-You can write your own modules, and requiring them using `require('path/to/file.js');`, which is very similar to `include_once('/path/to/file.php');` in PHP.
-
-Details about the use of modules:
-http://nodejs.org/api/modules.html#modules_modules
-
-#### 3rd party modules
-
-You can install 3rd party modules in your application using NPM.
+You can install 3rd party modules in your application using NPM (package manager for node).
 
 You can search for available modules here: npmjs.org
 
 In your application folder, you can use:
 
 ```bash
-npm install <module-name> --save
+npm install <module-name>
 ```
 
-It will install the module locally, making it accessible for your application only, and it will save the new dependency in `package.json` to facilitate the installation in other systems.
+It will install the module locally, making it accessible for your application only. If you add the option `--save`, and it will save the new dependency in `package.json` to facilitate the installation in other systems.
 
-#### Examples
+### Custom modules
+
+You can write your own modules, and requiring them in your program:
+
+module: foo/bar.js
+```javascript
+module.exports = function () {
+    console.log('yay!');
+}
+```
+
+You can require that module by doing:
 
 ```javascript
-// load modules to expand nodejs capabilities
-var fs = require('fs');
-var path = require('path');
-
-// compute the filesystem path for the file to read
-var file = path.join(__dirname, 'modules.js');
-fs.readFile(file, 'utf8', function (err, content) {
-
-    // very common error control pattern
-    if (err) {
-        console.error('Ops, something went wrong: ' + err);
-        return; // breaks
-    }
-
-    // use the content of the file in any way you want
-    console.log(content);
-});
+var modFn = require('./foo/bar.js');
+modFn();
 ```
 
-#### `__dirname` && `path.join()`
+Module can export functions, object,  numbers, strings, etc.
 
-This is equivalent to `dirname(__FILE__) . '/foo.php');` in PHP, the difference is that by using `path.join()` it works in windows and unix filesystems. The `path` module is smart enough to do the right thing with `/` and `\` depending on the "runtime".
+Details about the use of modules:
+http://nodejs.org/api/modules.html#modules_modules
 
-More details about `path` module here: http://nodejs.org/api/path.html
+## Exercise
+
+__Write a http server that uses a custom module that exports the request handler, use a 3rd party module to complement the program in any way you like.__
+
+program: `server.js`
+
+```javascript
+var http = require('http');
+var requestHandler = require('./request-handler.js');
+
+http.createServer(requestHandler).listen(3000, '127.0.0.1');
+
+console.log('Server running at http://127.0.0.1:3000/');
+```
+
+Module: `request-handler.js`
+
+```javascript
+module.exports = function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+
+};
+```
+
+```bash
+node exercise-3-server/server.js
+```
+
+_note: `start.js` requires a module that exports the http server instance, and calls listen on it._

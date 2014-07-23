@@ -55,7 +55,9 @@ node exercise-2-programs/event-loop.js
 
 _note: the output will be `> one > three > two` due to the async nature of javascript. the first pass on the program will not end after the last line of the program gets executed because there is a pending operation that was added into the event loop to be executed in about 1000ms. The programs ends when the event loop is empty._
 
-### Daemon
+## Exercise
+
+__Write a program that uses the even loop to keep the program running forever.__
 
 program: `daemon.js`
 

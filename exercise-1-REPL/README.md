@@ -51,7 +51,7 @@ function getPrimes(max) {
 }
 ```
 
-Use the defined function to output the primes smalled than 10 millions.
+Use the defined function to output the primes smaller than 10 millions.
 
 _note: explain how the expensive operation holds the control until the execution finishes._
 
@@ -75,7 +75,9 @@ In the previous example, the result of the numeric operation will be log, and ev
 
 _note: with the exception of new ES6 features that might be released in V8 very recently, it takes few cycles to get nodejs updated._
 
-__Exercise: find at least 3 APIs on each "runtime" that are unique.__
+## Exercise
+
+__find at least 3 APIs on each "runtime" that are unique.__
 
 * nodejs: `process.env`, `global` and `require()`.
 * chrome: `document.addEventListener()`, `window` and `new Promise()`
