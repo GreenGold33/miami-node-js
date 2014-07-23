@@ -130,3 +130,17 @@ app.use('/css', express.static(__dirname + '/path/to/css/'));
 ```
 
 In this case, any file within the folder `path/to/css/` will be accessible via HTTP thru a url like this `http://localhost:3000/css/foo/bar.css`.
+
+## Exercises
+
+__Abstract the YQL routine to be shared between multiple routes.__
+
+_note: make a module that exports the YQL routine, receiving a query and a callback function._
+
+__Define rules that will prevent attackers to crash your server.__
+
+_note: define a middleware that verifies the photo `id` as a numeric value (e.g.: `^[0-9]+`), or throw a 404._
+
+__Improve the list of available cities in the homepage.__
+
+_note: read the names of the cities from disk, or from an API._
