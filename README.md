@@ -4,6 +4,7 @@
 * When: Wednesday, July 23, 2014, 6:00 PM to 9:30 PM
 * Location: MiamiShared - 990 Biscayne Blvd #501 Miami, FL 33132.
 * Details: https://github.com/theironhack/miami-node-js
+* Instructors: Caridy Patiño (@caridy), Nick Comer (@nkcmr) and Rey Guerra (@reiniergs)
 
 ## Overview
 
