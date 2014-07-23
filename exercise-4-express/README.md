@@ -97,7 +97,7 @@ These are some of the APIs we plan to use:
 
 _note: you need to follow the steps to get a personal api key._
 
-[search photos by city name]: https://developer.yahoo.com/yql/console/#h=select+*+from+flickr.photos.search+where+has_geo%3D%22true%22+and+text%3D%22san+francisco%22
+[search photos by city name]: https://developer.yahoo.com/yql/console/#h=select+*+from+flickr.photos.search+where+woe_id+in+(select+woeid+from+geo.places+where+text%3D%22sunnyvale%2C+usa%22+limit+1)+AND+api_key+%3D+0984607e2222db7a1be6a5692741ca08+limit+9
 [photo info by id]: https://developer.yahoo.com/yql/console/?_uiFocus=flickr&q=select%20*%20from%20flickr.photos.search%20where%20has_geo%3D%22true%22%20and%20text%3D%22london%2CUK%22%20and%20api_key%3D%2292bd0de55a63046155c09f1a06876875%22%3B#h=select+*+from+flickr.photos.info+where+photo_id%3D'2186714153'
 
 ### HTTP Client to call YQL from nodejs

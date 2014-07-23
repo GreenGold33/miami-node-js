@@ -12,8 +12,9 @@ app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
 app.use('/css', express.static(__dirname + '/css'));
 
 app.route('/photos/:city').get(function (req, res, next) {
-    var query = 'select * from flickr.photos.search where has_geo="true" and text="' +
-            req.params.city + '" AND api_key=' + api_key;
+    var query = 'select * from flickr.photos.search where woe_id in ' +
+            '(select woeid from geo.places where text="' + req.params.city + '" limit 1)' +
+            ' AND api_key=' + api_key + ' limit 9';
     request('https://query.yahooapis.com/v1/public/yql', {
         qs: {
             q: query,
@@ -22,7 +23,6 @@ app.route('/photos/:city').get(function (req, res, next) {
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var photos = (photos = JSON.parse(body).query.results) ? photos.photo : [];
-            photos = photos.slice(0, 9);
             res.render('photos', {
                 photos: photos
             });
