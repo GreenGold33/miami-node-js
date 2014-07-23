@@ -22,7 +22,7 @@ _note: it is a program without output, and it finishes immediately._
 
 ### Logging messages
 
-program: `math-operation.js`
+program: `console-message.js`
 
 ```javascript
 console.log('ironhack workshop!');
