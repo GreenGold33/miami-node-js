@@ -40,7 +40,7 @@ Most of them are documented here:  http://nodejs.org/api/
 
 You can install 3rd party modules in your application using NPM (package manager for node).
 
-You can search for available modules here: npmjs.org
+You can search for available modules here: http://npmjs.org/
 
 In your application folder, you can use:
 
