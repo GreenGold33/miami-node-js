@@ -50,6 +50,8 @@ npm install <module-name>
 
 It will install the module locally, making it accessible for your application only. If you add the option `--save`, and it will save the new dependency in `package.json` to facilitate the installation in other systems.
 
+There are thousands of middleware available thru NPM (e.g.: https://github.com/yahoo/node-limits)
+
 ### Custom modules
 
 You can write your own modules, and requiring them in your program:

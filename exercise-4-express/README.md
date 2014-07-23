@@ -1,10 +1,17 @@
 ## Using express to create a web application
 
-To run this example:
+### Defining the application package
 
-```bash
-npm install
-npm start
+In an empty folder, create a `package.json` to describe the name of your application, and the way to run the application:
+
+file: `package.json`
+
+```javascript
+{
+    "name": "myapp",
+    "private": true,
+    "main": "server.js"
+}
 ```
 
 ### Creating express application
@@ -13,15 +20,19 @@ To create a webserver using express, you have to install the express module sinc
 
 ```bash
 npm install express --save
-`````
+```
 
 Then you can simply create the app and define on which port the app will listen for traffic:
+
+file: `server.js`
 
 ```javascript
 var express = require('express');
 var app     = express();
 app.listen(3000);
 ```
+
+_note: By running `node server.js` or `npm start`, the application will run. Keep in mind that `npm start` will rely on `package.json` definition to execute the script defined thru `main`._
 
 ### Express Routes
 
@@ -84,9 +95,17 @@ app.set('view engine', '<engine-name>');
 app.engine('<engine-name>', engineObj);
 ```
 
+Once the engine is in place, you should be able to render any view localed within the folder designed by `views` setting (which defaults to `./views/`), e.g:
+
+```javascript
+app.route('/').get(function (req, res, next) {
+    res.render('home');
+});
+```
+
 ### YQL
 
-YQL (Yahoo Query Language) is an expressive SQL-like language that lets you query, filter, and join data across Web services. It provides access to most open webservices out there by abstracting those APIs under a JSON API that accepts SQL-like queries.
+YQL (Yahoo Query Language) is an expressive SQL-like language that lets you query, filter, and join data across Web services. It provides access to most open web services out there by abstracting those APIs under a JSON API that accepts SQL-like queries.
 
 More details here: https://developer.yahoo.com/yql/
 
@@ -133,14 +152,25 @@ In this case, any file within the folder `path/to/css/` will be accessible via H
 
 ## Exercises
 
-__Abstract the YQL routine to be shared between multiple routes.__
+First, clone and install the demo app that is meant to be improved:
+
+```bash
+git clone https://github.com/caridy/miami-node-js-demo-app.git
+cd miami-nodejs-js-demo-app/
+npm install
+npm start
+```
+
+#### Tasks:
+
+> __Abstract the YQL routine to be shared between multiple routes.__
 
 _note: make a module that exports the YQL routine, receiving a query and a callback function._
 
-__Define rules that will prevent attackers to crash your server.__
+> __Define rules that will prevent attackers to crash your server.__
 
 _note: define a middleware that verifies the photo `id` as a numeric value (e.g.: `^[0-9]+`), or throw a 404._
 
-__Improve the list of available cities in the homepage.__
+> __Improve the list of available cities in the homepage.__
 
 _note: read the names of the cities from disk, or from an API._
