@@ -43,10 +43,24 @@ _note: all 3 editors support ESLint/JSHint plugins, make sure you have one of th
 * windows & osx: http://git-scm.com/downloads
 * linux: use apt-get, yum, etc.
 
+#### Heroku
+
+* Install the heroku toolbelt: https://toolbelt.heroku.com/
+
 ## Provisions
 
 * If you don't have a github.com account, make sure you create one https://github.com/join, it is free.
 * If you don't have a heroku.com account, make sure you create one https://id.heroku.com/signup/www-header, it is free.
+
+## Exercises
+
+Follow the instructions on each page:
+
+* https://github.com/theironhack/miami-node-js/tree/master/exercise-1-REPL
+* https://github.com/theironhack/miami-node-js/tree/master/exercise-2-programs
+* https://github.com/theironhack/miami-node-js/tree/master/exercise-3-server
+* https://github.com/theironhack/miami-node-js/tree/master/exercise-4-express
+* https://github.com/theironhack/miami-node-js/tree/master/exercise-5-heroku
 
 ## Stuck?
 

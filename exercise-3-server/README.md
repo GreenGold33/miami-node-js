@@ -21,6 +21,12 @@ console.log('Server running at http://127.0.0.1:3000/');
 node exercise-3-server/simple-server.js
 ```
 
+## Serving strategies
+
+Check this mini presentation that describes the fundamental differences between nodejs and other infrastructures like Apache/PHP, etc:
+
+https://github.com/theironhack/miami-node-js/blob/master/exercise-3-server/serving-strategy-mini-presentation.pdf?raw=true
+
 ## Modules
 
 ### Core modules

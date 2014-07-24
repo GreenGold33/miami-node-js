@@ -59,3 +59,5 @@ You will see how heroku adds a custom remote branch for your repo called heroku.
 ```bash
 git push heroku master
 ```
+
+To test if the app was properly deployed, just run the command `heroku open` in the local application folder, and it will fire up the remote application in your browser.
